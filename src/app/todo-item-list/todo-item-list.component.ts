@@ -27,6 +27,10 @@ export class TodoItemListComponent implements OnInit {
       .subscribe(data => this.todoItems = data);
   }
 
+  dateFrom(d : Date) {
+    return Date.parse(new Date(d).toDateString());
+  }
+
   updateTodoItem(id: any) {
     this.router.navigate(['update-todo-item', id]);
   }

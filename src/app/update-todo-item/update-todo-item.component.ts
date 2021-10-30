@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Priority, TodoBEService, UpdateTodoItemDto } from "../subido-fe-client";
+import { Priority, TodoBEService, TodoItemDto, UpdateTodoItemDto } from "../subido-fe-client";
 
 @Component({
   selector: 'app-update-todo-item',
@@ -28,8 +28,13 @@ export class UpdateTodoItemComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
 
-    this.todoBEService.findTodoItem(this.id).subscribe(data => {
-      this.todoItem = data;
+    this.todoBEService.findTodoItem(this.id).subscribe((data: TodoItemDto) => {
+      this.todoItem = new class implements UpdateTodoItemDto {
+        deadline = data.deadline;
+        id = data.id;
+        name = data.name;
+        priority = data.priority;
+      };
     }, error => console.log(error));
   }
 
