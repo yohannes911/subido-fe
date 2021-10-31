@@ -1,0 +1,48 @@
+.subtitle {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  font-size: 14pt;
+}
+
+.header {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  font-size: 10pt;
+}
+
+.btn-update {
+  background-image: url("/assets/images/update.png");
+  background-color: transparent;
+  width: 128px;
+  height: 128px;
+}
+
+.btn-delete {
+  background-image: url("/assets/images/delete-medium.png");
+  background-color: transparent;
+  width: 96px;
+  height: 96px;
+}
+
+.new-item {
+  margin-left: 32px;
+}
+
+.paging-item {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  font-size: 10pt;
+  padding: 0 16px;
+  display: inline-block;
+}
+
+.paging-label {
+  padding-right: 8px;
+}
+
+.paging-value {
+  color: goldenrod;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.paging-static {
+  padding: 0 4px;
+  color: black;
+}

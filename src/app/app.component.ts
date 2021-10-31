@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Subi-TODO: yet another TODO handler';
+  title1 = 'Subi-DO';
+  title2 = 'yet another TODO handler';
 }

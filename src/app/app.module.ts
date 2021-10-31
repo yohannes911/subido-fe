@@ -7,7 +7,9 @@ import { TodoItemListComponent } from './todo-item-list/todo-item-list.component
 import { CreateTodoItemComponent } from './create-todo-item/create-todo-item.component';
 import { FormsModule } from '@angular/forms';
 import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.component';
-import { basePathInterceptorProvider } from "./http-interceptors";
+import { todoInterceptorProvider } from "./interceptors";
+import { OwlDateTimeModule, OwlNativeDateTimeModule } from "@danielmoncada/angular-datetime-picker";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 @NgModule({
   declarations: [
@@ -20,9 +22,12 @@ import { basePathInterceptorProvider } from "./http-interceptors";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    OwlDateTimeModule,
+    OwlNativeDateTimeModule,
+    BrowserAnimationsModule
   ],
-  providers: [basePathInterceptorProvider],
+  providers: [todoInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule {

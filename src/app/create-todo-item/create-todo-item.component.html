@@ -1,4 +1,4 @@
-<div class="row">
+<div class="row form-content">
   <div class="card col-md-6 offset-md-3 offset-md-3">
     <div class="row">
       <h3 class="text-center"> Create new TODO item </h3>
@@ -6,16 +6,19 @@
       <div class="card-body">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label>Name</label>
-            <input type="text" class="form-control" id="name" [(ngModel)]="todoItem.name" name="name">
+            <label for="deadline" class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" [(ngModel)]="todoItem.name" name="name" required>
           </div>
+          <br/>
           <div class="form-group">
-            <label>Deadline</label>
-            <input type="text" class="form-control" id="deadline" [(ngModel)]="todoItem.deadline" name="deadline">
+            <label for="deadline" class="form-label">Deadline</label>
+            <input class="form-control" id="deadline" name="deadline" [(ngModel)]="todoItem.deadline" [owlDateTime]="dt1" [owlDateTimeTrigger]="dt1"
+                   placeholder="click to select date...">
+            <owl-date-time #dt1></owl-date-time>
           </div>
-
+          <br/>
           <div class="form-group">
-            <label>Priority</label>
+            <label for="priority" class="form-label">Priority</label>
             <select class="form-control" id="priority" name="priority" [(ngModel)]="todoItem.priority" required>
               <option *ngFor="let priorityType of priorityTypes" [value]="priorityType">
                 {{priorityType}}
@@ -23,7 +26,10 @@
             </select>
           </div>
           <br/>
-          <button class="btn btn-success" type="submit">Submit</button>
+          <div class="form-group">
+            <button class="btn btn-success" type="submit">Submit</button>
+            <button class="btn" type="button" (click)="onCancel()">Cancel</button>
+          </div>
         </form>
       </div>
     </div>

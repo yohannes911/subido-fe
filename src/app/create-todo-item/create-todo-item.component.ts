@@ -30,12 +30,17 @@ export class CreateTodoItemComponent implements OnInit {
     this.todoBEService.createTodoItem(this.todoItem).subscribe(data => {
         console.log(data);
         this.goToTodoItemList();
-      },
-      error => console.log(error));
+      }, error => {
+      console.log(error);
+    });
   }
 
   goToTodoItemList() {
     this.router.navigate(['/todo-items']);
+  }
+
+  onCancel() {
+    this.goToTodoItemList();
   }
 
   onSubmit() {

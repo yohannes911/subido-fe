@@ -1,0 +1,15 @@
+.main-title {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  color: goldenrod;
+  text-shadow: 2px 2px 5px #202020;
+  /*text-shadow: 2px 2px 5px #091a33;*/
+}
+
+.main-subtitle {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  font-size: 14pt;
+  color: goldenrod;
+  /*text-shadow: 2px 2px 3px #091a33;*/
+  font-style: italic;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}

@@ -20,9 +20,7 @@ export class UpdateTodoItemComponent implements OnInit {
     priority: Priority.HIGH;
   }
 
-  constructor(private todoBEService: TodoBEService,
-              private route: ActivatedRoute,
-              private router: Router) {
+  constructor(private todoBEService: TodoBEService, private route: ActivatedRoute, private router: Router) {
   }
 
   ngOnInit(): void {
@@ -30,7 +28,7 @@ export class UpdateTodoItemComponent implements OnInit {
 
     this.todoBEService.findTodoItem(this.id).subscribe((data: TodoItemDto) => {
       this.todoItem = new class implements UpdateTodoItemDto {
-        deadline = data.deadline;
+        deadline = data.deadline !== undefined && data.deadline !== null ? new Date(data.deadline as any * 1000) : data.deadline;
         id = data.id;
         name = data.name;
         priority = data.priority;
@@ -38,11 +36,13 @@ export class UpdateTodoItemComponent implements OnInit {
     }, error => console.log(error));
   }
 
+  onCancel() {
+    this.goToTodoItemList();
+  }
+
   onSubmit() {
-    this.todoBEService.updateTodoItem(this.id, this.todoItem).subscribe(data => {
-        this.goToTodoItemList();
-      }
-      , error => console.log(error));
+    this.todoBEService.updateTodoItem(this.id, this.todoItem)
+      .subscribe(data => this.goToTodoItemList(), error => console.log(error));
   }
 
   goToTodoItemList() {

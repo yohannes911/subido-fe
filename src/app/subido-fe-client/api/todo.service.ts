@@ -19,6 +19,7 @@ import { Observable }                                        from 'rxjs';
 
 import { CreateTodoItemDto } from '../model/models';
 import { QueryRequestDto } from '../model/models';
+import { QueryResponseDto } from '../model/models';
 import { TodoItemDto } from '../model/models';
 import { UpdateTodoItemDto } from '../model/models';
 
@@ -237,9 +238,9 @@ export class TodoBEService {
      * @param observe set whether or not to return the data Observable as the body, response or events. defaults to returning the body.
      * @param reportProgress flag to report request and response progress.
      */
-    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<Array<TodoItemDto>>;
-    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<HttpResponse<Array<TodoItemDto>>>;
-    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<HttpEvent<Array<TodoItemDto>>>;
+    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'body', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<QueryResponseDto>;
+    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'response', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<HttpResponse<QueryResponseDto>>;
+    public queryTodoItems(queryRequestDto: QueryRequestDto, observe?: 'events', reportProgress?: boolean, options?: {httpHeaderAccept?: '*/*'}): Observable<HttpEvent<QueryResponseDto>>;
     public queryTodoItems(queryRequestDto: QueryRequestDto, observe: any = 'body', reportProgress: boolean = false, options?: {httpHeaderAccept?: '*/*'}): Observable<any> {
         if (queryRequestDto === null || queryRequestDto === undefined) {
             throw new Error('Required parameter queryRequestDto was null or undefined when calling queryTodoItems.');
@@ -273,7 +274,7 @@ export class TodoBEService {
             responseType_ = 'text';
         }
 
-        return this.httpClient.post<Array<TodoItemDto>>(`${this.configuration.basePath}/api/todo/query`,
+        return this.httpClient.post<QueryResponseDto>(`${this.configuration.basePath}/api/todo/query`,
             queryRequestDto,
             {
                 responseType: <any>responseType_,

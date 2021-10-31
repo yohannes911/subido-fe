@@ -1,20 +1,14 @@
-<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
-    <ul class = "navbar-nav">
-        <li class = "nav-item">
-            <a routerLink="todo-items" routerLinkActive="active" class="nav-link" >TODO List</a>
-        </li>
-        <li class = "nav-item">
-            <a routerLink="create-todo-item" routerLinkActive="active" class="nav-link" >New TODO</a>
-        </li>
-    </ul>
+<nav class="navbar navbar-expand-sm navbar-light bg-light" style="text-align: right">
+  <ul class="navbar-nav" style="margin-left: 64px;">
+    <li>
+      <div style="padding-left: 32px;">
+        <a routerLink="todo-items" routerLinkActive="active" class="nav-link"><h1 class="text-center main-title">{{title1}}</h1></a>
+        <h2 class="text-center main-subtitle">{{title2}}</h2>
+      </div>
+    </li>
+  </ul>
 </nav>
 
-<h1 class="text-center"> {{title}} </h1>
-<div class = "container">
-    <router-outlet></router-outlet>
+<div class="container">
+  <router-outlet></router-outlet>
 </div>
-<footer class = "footer">
-    <div class = "container">
-        <span>Subi-dubi-ToDooo! :)</span>
-    </div>
-</footer>

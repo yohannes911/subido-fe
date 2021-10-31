@@ -16,7 +16,7 @@ export interface TodoItemDto {
     name: string;
     deadline?: Date;
     priority: Priority;
-    id?: number;
-    createdAt?: Date;
+    id: number;
+    createdAt: Date;
 }
 

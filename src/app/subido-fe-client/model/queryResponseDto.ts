@@ -9,13 +9,16 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Priority } from './priority';
+import { Sort } from './sort';
+import { TodoItemDto } from './todoItemDto';
 
 
-export interface UpdateTodoItemDto { 
-    name: string;
-    deadline?: Date;
-    priority: Priority;
-    id: number;
+export interface QueryResponseDto { 
+    todoItems: Array<TodoItemDto>;
+    pageNumber: number;
+    pageSize: number;
+    totalPages: number;
+    totalElements: number;
+    sort?: Sort;
 }
 
