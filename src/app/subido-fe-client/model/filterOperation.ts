@@ -11,9 +11,18 @@
  */
 
 
-export interface Sort { 
-    unsorted?: boolean;
-    empty?: boolean;
-    sorted?: boolean;
-}
+export enum FilterOperation {
+    IN = 'IN',
+    NOT_IN = 'NOT_IN',
+    LIKE = 'LIKE',
+    NOT_LIKE = 'NOT_LIKE',
+    LT = 'LT',
+    LE = 'LE',
+    GT = 'GT',
+    GE = 'GE',
+    EQ = 'EQ',
+    NOT_EQ = 'NOT_EQ',
+    IS_NULL = 'IS_NULL',
+    IS_NOT_NULL = 'IS_NOT_NULL'
+};
 

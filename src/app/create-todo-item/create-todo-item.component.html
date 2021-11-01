@@ -6,7 +6,7 @@
       <div class="card-body">
         <form (ngSubmit)="onSubmit()">
           <div class="form-group">
-            <label for="deadline" class="form-label">Name</label>
+            <label for="name" class="form-label">Name</label>
             <input type="text" class="form-control" id="name" [(ngModel)]="todoItem.name" name="name" required>
           </div>
           <br/>
@@ -35,3 +35,32 @@
     </div>
   </div>
 </div>
+<ng-template #modalContent let-modal>
+  <div class="modal-header">
+    <h3 class="modal-title" id="modal-basic-title">Error creating TODO!</h3>
+  </div>
+  <div class="modal-body">
+    <div style="text-align: right; float: right; width: 132px;"><img src="/assets/images/error.png"></div>
+    <table style="font-size: 10pt;">
+      <tr style=" vertical-align: top;">
+        <td>Timestamp:</td>
+        <td>{{errorResult.timestamp | date: 'yyyy.MM.dd HH:mm:ss' }}</td>
+      </tr>
+      <tr style=" vertical-align: top;">
+        <td>Path:</td>
+        <td>{{errorResult.path}}</td>
+      </tr>
+      <tr style=" vertical-align: top;">
+        <td>Message:</td>
+        <td><textarea [value]="errorResult.message" rows="8" cols="20"></textarea></td>
+      </tr>
+      <tr *ngFor="let error of errorResult.errors">
+        <td>{{error.objectName}}:</td>
+        <td>{{error.rejectedValue === null ? 'null' : error.rejectedValue}}</td>
+      </tr>
+    </table>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Close click')">Close</button>
+  </div>
+</ng-template>

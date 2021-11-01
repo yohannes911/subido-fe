@@ -9,14 +9,10 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TodoItemDto } from './todoItemDto';
 
 
-export interface QueryResponseDto { 
-    todoItems: Array<TodoItemDto>;
-    pageNumber: number;
-    pageSize: number;
-    totalPages: number;
-    totalElements: number;
-}
+export enum SortDirection {
+    ASC = 'ASC',
+    DESC = 'DESC'
+};
 

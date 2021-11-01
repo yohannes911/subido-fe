@@ -9,15 +9,11 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { Sort } from './sort';
+import { SortDirection } from './sortDirection';
 
 
-export interface PageableObject { 
-    paged?: boolean;
-    unpaged?: boolean;
-    offset?: number;
-    pageNumber?: number;
-    pageSize?: number;
-    sort?: Sort;
+export interface SortDto { 
+    fieldName: string;
+    direction: SortDirection;
 }
 

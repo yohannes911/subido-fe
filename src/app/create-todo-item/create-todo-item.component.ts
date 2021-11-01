@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreateTodoItemDto, Priority, TodoBEService } from "../subido-fe-client";
+import { ErrorResponseDto } from "../error-response";
+import { NgbModal } from "@ng-bootstrap/ng-bootstrap";
 
 @Component({
   selector: 'app-create-todo-item',
@@ -17,7 +19,12 @@ export class CreateTodoItemComponent implements OnInit {
     priority: Priority.LOW;
   }
 
-  constructor(private todoBEService: TodoBEService, private router: Router) {
+  @ViewChild('modalContent')
+  private modalContent: TemplateRef<any>;
+
+  errorResult: ErrorResponseDto;
+
+  constructor(private todoBEService: TodoBEService, private router: Router, private modalService: NgbModal) {
   }
 
   ngOnInit(): void {
@@ -28,10 +35,12 @@ export class CreateTodoItemComponent implements OnInit {
       this.todoItem.priority = Priority.LOW;
     }
     this.todoBEService.createTodoItem(this.todoItem).subscribe(data => {
-        console.log(data);
-        this.goToTodoItemList();
-      }, error => {
+      console.log(data);
+      this.goToTodoItemList();
+    }, error => {
       console.log(error);
+      this.errorResult = error.error;
+      this.modalService.open(this.modalContent, {ariaLabelledBy: 'modal-basic-title'});
     });
   }
 

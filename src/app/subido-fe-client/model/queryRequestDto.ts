@@ -9,14 +9,14 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { PageableObject } from './pageableObject';
-import { Sort } from './sort';
+import { FieldFilterDto } from './fieldFilterDto';
+import { SortDto } from './sortDto';
 
 
 export interface QueryRequestDto { 
-    offset?: number;
-    limit?: number;
-    sortList?: Array<Sort>;
-    pageable?: PageableObject;
+    pageSize?: number;
+    pageNumber?: number;
+    sorts?: Array<SortDto>;
+    fieldFilters?: Array<FieldFilterDto>;
 }
 

@@ -30,3 +30,13 @@ h3 {
 .form-content {
   margin-top: 8px;
 }
+
+.custom-btn {
+  border: none;
+  font-size: 8pt;
+  background-image: url("/assets/images/ok.png");
+}
+
+.cdk-global-overlay-wrapper, .cdk-overlay-container {
+  z-index: 99999 !important;
+}

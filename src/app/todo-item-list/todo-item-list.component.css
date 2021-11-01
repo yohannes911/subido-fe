@@ -22,8 +22,30 @@
   height: 96px;
 }
 
+.list-button {
+  font-size: 8pt;
+}
+
 .new-item {
   margin-left: 32px;
+}
+
+.pagination-block {
+  font-family: 'PrehistoricCaveman', Fallback, sans-serif;
+  font-size: 10pt;
+}
+
+.pagination > li > a {
+  color: black;
+}
+
+.pagination > li.active > a {
+  background: goldenrod;
+  border-color: #202020;
+}
+
+.pagination > li.disabled > a {
+  color: antiquewhite;
 }
 
 .paging-item {

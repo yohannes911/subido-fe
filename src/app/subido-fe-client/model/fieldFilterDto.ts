@@ -9,14 +9,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
  */
-import { TodoItemDto } from './todoItemDto';
+import { FilterOperation } from './filterOperation';
+import { FieldName } from './fieldName';
 
 
-export interface QueryResponseDto { 
-    todoItems: Array<TodoItemDto>;
-    pageNumber: number;
-    pageSize: number;
-    totalPages: number;
-    totalElements: number;
+export interface FieldFilterDto { 
+    fieldName: FieldName;
+    operation: FilterOperation;
+    filterValue: string;
 }
 

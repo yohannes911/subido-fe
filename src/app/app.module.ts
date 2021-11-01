@@ -10,6 +10,7 @@ import { UpdateTodoItemComponent } from './update-todo-item/update-todo-item.com
 import { todoInterceptorProvider } from "./interceptors";
 import { OwlDateTimeModule, OwlNativeDateTimeModule } from "@danielmoncada/angular-datetime-picker";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { GlobalDataService } from "./global-data.service";
 
 @NgModule({
   declarations: [
@@ -27,7 +28,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
     OwlNativeDateTimeModule,
     BrowserAnimationsModule
   ],
-  providers: [todoInterceptorProvider],
+  providers: [todoInterceptorProvider, GlobalDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
